@@ -1,0 +1,3 @@
+[submodule "autoload/vital"]
+	path = autoload/vital
+	url = https://github.com/vim-jp/vital.vim.git
