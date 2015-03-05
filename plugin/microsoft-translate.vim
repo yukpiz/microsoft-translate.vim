@@ -1,1 +1,3 @@
-command! -nargs=0 Translate call microsoft#translate#trans('en', 'ja', 'hello')
+command! -nargs=0 MicrosoftTranslateOpen :call translate#interface#translate()
+
+command! -nargs=0 MicrosoftTranslateClose :call translate#interface#window_close()
