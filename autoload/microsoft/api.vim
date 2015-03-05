@@ -1,4 +1,4 @@
-function! microsoft#translate#trans(from, to, text)
+function! microsoft#api#translator(from, to, text)
     let token = microsoft#oauth#access_token()
 
     let trans_url = 'http://api.microsofttranslator.com/v2/Http.svc/Translate'
