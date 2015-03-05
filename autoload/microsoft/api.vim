@@ -13,5 +13,6 @@ function! microsoft#translate#trans(from, to, text)
     \}
 
     let http = vital#of('vital').import('Web.HTTP')
-    echo http.get(trans_url, trans_get_parameters, trans_get_headers)
+    return http.get(trans_url, trans_get_parameters, trans_get_headers)
 endfunction
+
