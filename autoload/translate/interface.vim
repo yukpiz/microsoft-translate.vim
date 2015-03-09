@@ -1,6 +1,12 @@
-function! translate#interface#translate()
-    call translate#controller#init_variables()
-    call translate#interface#window_open(g:translate_from_lang, g:translate_to_lang)
+function! translate#interface#text_window_open(from, to, text)
+    let s:prev_buffer_nr = bufnr('%')
+    execute 'botright 7new Language:\ ' . a:to
+    call translate#interface#to_window_setting(a:to)
+    execute 'vnew Language:\ ' . a:from
+    call translate#interface#from_window_setting(a:from)
+    call setline('.', a:text)
+    execute 'stopinsert'
+    call translate#controller#buffer_mode()
 endfunction
 
 function! translate#interface#window_open(from, to)
@@ -45,9 +51,7 @@ function! translate#interface#window_close()
     endfor
 endfunction
 
-function! translate#interface#parse_response(response_list)
-    let xml = vital#of('microsoft_translate').import('Web.XML')
-
+function! translate#interface#to_window_set(lines)
     execute bufwinnr(s:to_buffer_nr) . 'wincmd w'
     setlocal modifiable
 
@@ -58,12 +62,7 @@ function! translate#interface#parse_response(response_list)
         let i = i + 1
     endwhile
 
-    let lines = []
-    for response in a:response_list
-        let parsed = xml.parse(response.content)
-        call add(lines, parsed['child'][0])
-    endfor
-    call setline('.', lines)
+    call setline('.', a:lines)
 
     setlocal nomodifiable
     execute bufwinnr(s:from_buffer_nr) . 'wincmd w'
