@@ -12,7 +12,7 @@ function! microsoft#api#translator(from, to, text)
     \  'Authorization': 'Bearer ' . token,
     \}
 
-    let http = vital#of('vital').import('Web.HTTP')
+    let http = vital#of('microsoft_translate').import('Web.HTTP')
     return http.get(trans_url, trans_get_parameters, trans_get_headers)
 endfunction
 

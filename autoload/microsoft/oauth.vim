@@ -13,11 +13,11 @@ function! microsoft#oauth#access_token()
     \}
 
     try
-        let http = vital#of('vital').import('Web.HTTP')
+        let http = vital#of('microsoft_translate').import('Web.HTTP')
         let response = http.post(access_url, access_token_post_parameters)
         if response !=# {}
             if response['status'] ==# '200'
-                let json = vital#of('vital').import('Web.JSON')
+                let json = vital#of('microsoft_translate').import('Web.JSON')
                 let decoded = json.decode(response.content)
                 return decoded['access_token']
             else

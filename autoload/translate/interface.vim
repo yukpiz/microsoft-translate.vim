@@ -46,7 +46,7 @@ function! translate#interface#window_close()
 endfunction
 
 function! translate#interface#parse_response(response_list)
-    let xml = vital#of('vital').import('Web.XML')
+    let xml = vital#of('microsoft_translate').import('Web.XML')
 
     execute bufwinnr(s:to_buffer_nr) . 'wincmd w'
     setlocal modifiable
