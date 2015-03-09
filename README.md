@@ -4,15 +4,16 @@
 
 ## Installation
 
+After writing to the ``~/.vimrc``, and please run the ``:NeoBundleInstall``
+
 ~~~
 NeoBundle "yukpiz/microsoft-translate.vim"
 ~~~
 
 ## Usage
 
-~~~
-:
-~~~
+``TODO``  
+
 
 ## Thanks
 
