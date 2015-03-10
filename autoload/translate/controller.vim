@@ -11,6 +11,9 @@ function! translate#controller#buffer_mode()
     let lines = getline(0, '$')
     let word_list = []
     for line in lines
+        if line ==# '' || strlen(line) == 0
+            continue
+        endif
         let word = microsoft#api#word_translator(
         \  g:translate_from_lang,
         \  g:translate_to_lang, line)
