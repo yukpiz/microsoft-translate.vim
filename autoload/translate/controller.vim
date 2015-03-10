@@ -7,6 +7,22 @@ function! translate#controller#init_variables()
     endif
 endfunction
 
+function! translate#controller#set_lang(from, to)
+    let g:translate_from_lang = a:from
+    let g:translate_to_lang = a:to
+    call translate#interface#window_refresh()
+endfunction
+
+function! translate#controller#set_from_lang(from)
+    let g:translate_from_lang = a:from
+    call translate#interface#window_refresh()
+endfunction
+
+function! translate#controller#set_to_lang(to)
+    let g:translate_to_lang = a:to
+    call translate#interface#window_refresh()
+endfunction
+
 function! translate#controller#buffer_mode()
     let lines = getline(0, '$')
     let word_list = []
