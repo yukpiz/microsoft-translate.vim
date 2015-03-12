@@ -21,10 +21,10 @@ NeoBundle "yukpiz/microsoft-translate.vim"
 
 Need options,
 ~~~
-It is a language that is based on that used in the translation,
-And automatically determined when you input 'auto'.
+"It is a language that is based on that used in the translation,
+"And automatically determined when you input 'auto'.
 let g:translate_from_lang = 'en'
-TODO
+"TODO
 let g:translate_to_lang = 'ja'
 ~~~
 
