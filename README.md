@@ -56,4 +56,4 @@ Other commands,
 
 ## License and Author
 
-* yukpiz <yukpiz@gmail.com>
+* yukpiz \<yukpiz@gmail.com\>
