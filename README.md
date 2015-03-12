@@ -24,7 +24,7 @@ Need options,
 "It is a language that is based on that used in the translation,
 "And automatically determined when you input 'auto'.
 let g:translate_from_lang = 'en'
-"TODO
+"It is a language that is target on that used in the translation.
 let g:translate_to_lang = 'ja'
 ~~~
 
@@ -33,30 +33,20 @@ After entering, It is the translated when leaving the insert mode.
 
 Other commands,
 ~~~
-:MSTranslateArgs
+"Translate arguments.
+:MSTranslateArgs {text}
 
-    TODO
-
-
+"Translate the text object at the cursor position.
 :MSTranslateWord
 
-    TODO
-
-
+"Translate by Visual mode selection.
 :MSTranslateVisual
 
-    TODO
-
-
+"Changing the language options.
 :MSTranslateSetLang ja en
-
+:MSTranslateSetFromLang ja
+:MSTranslateSetToLang en
 ~~~
-
-
-
-
-
-
 
 
 ## Thanks
