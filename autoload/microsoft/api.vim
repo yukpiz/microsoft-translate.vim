@@ -26,3 +26,19 @@ function! microsoft#api#parse_response(response)
     let xml = vital#of('microsoft_translate').import('Web.XML')
     return xml.parse(a:response.content)['child'][0]
 endfunction
+
+function! microsoft#api#detect(text)
+    let token = microsoft#oauth#access_token()
+
+    let detect_url = 'http://api.microsofttranslator.com/V2/Http.svc/Detect'
+    let detect_get_parameters = {
+    \  'text': a:text,
+    \}
+
+    let detect_get_headers = {
+    \  'Authorization': 'Bearer '. token,
+    \}
+
+    let http = vital#of('microsoft_translate').import('Web.HTTP')
+    return http.get(detect_url, detect_get_parameters, detect_get_headers)
+endfunction
