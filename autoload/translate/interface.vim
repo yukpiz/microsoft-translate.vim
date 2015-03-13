@@ -1,5 +1,6 @@
 function! translate#interface#text_window_open(from, to, text)
     let s:prev_buffer_nr = bufnr('%')
+    call translate#interface#window_close()
     execute 'botright 7new To\ Language:\ ' . a:to
     call translate#interface#to_window_setting(a:to)
     execute 'vnew From\ Language:\ ' . a:from
@@ -11,6 +12,7 @@ endfunction
 
 function! translate#interface#window_open(from, to)
     let s:prev_buffer_nr = bufnr('%')
+    call translate#interface#window_close()
     execute 'botright 7new To\ Language:\ ' . a:to
     call translate#interface#to_window_setting(a:to)
     execute 'vnew From\ Language:\ ' . a:from
@@ -19,6 +21,7 @@ endfunction
 
 function! translate#interface#to_window_open(to)
     let s:prev_buffer_nr = bufnr('%')
+    call translate#interface#window_close()
     execute 'botright 7new To\ Language:\ ' . a:to
     call translate#interface#to_window_setting(a:to)
 endfunction
