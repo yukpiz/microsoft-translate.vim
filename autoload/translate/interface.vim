@@ -60,6 +60,19 @@ function! translate#interface#window_refresh()
     endfor
 endfunction
 
+function! translate#interface#force_to_window_refresh(to)
+    for b in range(1, bufnr('$'))
+        let wintype = getwinvar(bufwinnr(b), 'window_type', {})
+        if wintype ==# {} || !has_key(wintype, 'type')
+            continue
+        endif
+        if wintype['name'] ==# 'translate_to'
+            execute bufwinnr(b) . 'wincmd w'
+            execute 'silent file To\ Language:\ ' . a:to
+        endif
+    endfor
+endfunction
+
 function! translate#interface#window_close()
     for b in range(1, bufnr('$'))
         let wintype = getwinvar(bufwinnr(b), 'window_type', {})

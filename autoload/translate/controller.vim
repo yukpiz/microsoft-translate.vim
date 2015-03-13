@@ -5,6 +5,13 @@ function! translate#controller#init_variables()
     if !exists('g:translate_from_lang')
         let g:translate_from_lang = 'auto'
     endif
+    if !exists('g:translate_lang_relation')
+        let g:translate_lang_relation = {
+        \  'en': 'ja',
+        \  'ja': 'en',
+        \  'etc': 'ja',
+        \}
+    endif
 endfunction
 
 function! translate#controller#set_lang(from, to)
