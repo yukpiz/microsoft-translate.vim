@@ -16,6 +16,7 @@ function! microsoft#api#translator(from, to, text)
         let from = microsoft#api#parse_response(response)
 
         let to = translate#options#detect_to_lang(from)
+        call translate#interface#force_to_window_refresh(to)
     endif
 
     let trans_get_parameters = {
